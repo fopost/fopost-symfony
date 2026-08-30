@@ -62,7 +62,7 @@ Every key takes a literal too, so `api_key: 'fp_...'` works while you are trying
 | Key | Default | What it does |
 | --- | --- | --- |
 | `api_key` | none, required | Your API key. Sent as `X-API-Key` |
-| `base_url` | `https://api.fopost.com/api/v1` | API root. A host with no path gets the versioned path appended |
+| `base_url` | `https://api.fopost.com/v1` | API root. A host with no path gets the versioned path appended |
 | `timeout` | `30.0` | Seconds to wait for one request |
 | `max_retries` | `3` | Attempts a rate limited request gets |
 | `default_workspace_id` | `null` | Workspace the console commands use when `--workspace` is left off |

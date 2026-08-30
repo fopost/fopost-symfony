@@ -93,7 +93,7 @@ never `(float) $config['timeout']`), so `%env(float:FOPOST_API_TIMEOUT)%` resolv
 
 Handled entirely by `fopost/sdk`, repeated here only so a change is recognisable as belonging upstream:
 
-- Base URL `https://api.fopost.com/api/v1`; a host with no path gets `/api/v1` appended
+- Base URL `https://api.fopost.com/v1`; a host with no path gets `/v1` appended
 - Auth header `X-API-Key`, not `Bearer`
 - Retries on 429, honouring `Retry-After`, capped at 60s
 - Success envelope `{"data": ...}`; errors `{"error": "<code>", "message": "<text>"}`
