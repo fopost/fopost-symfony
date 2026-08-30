@@ -38,14 +38,20 @@ final class TestKernel extends Kernel
         return [new FrameworkBundle(), new FopostBundle()];
     }
 
+    // Kept out of the package so a boot cannot drop generated files in the repository.
+    public function getProjectDir(): string
+    {
+        return sys_get_temp_dir() . '/fopost-symfony-tests/' . $this->fingerprint;
+    }
+
     public function getCacheDir(): string
     {
-        return sys_get_temp_dir() . '/fopost-symfony-tests/' . $this->fingerprint . '/cache';
+        return $this->getProjectDir() . '/cache';
     }
 
     public function getLogDir(): string
     {
-        return sys_get_temp_dir() . '/fopost-symfony-tests/' . $this->fingerprint . '/log';
+        return $this->getProjectDir() . '/log';
     }
 
     protected function configureContainer(ContainerConfigurator $container): void
