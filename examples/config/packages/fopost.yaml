@@ -1,0 +1,8 @@
+fopost:
+    api_key: '%env(FOPOST_API_KEY)%'
+    base_url: '%env(FOPOST_API_URL)%'
+    timeout: '%env(float:FOPOST_API_TIMEOUT)%'
+    max_retries: '%env(int:FOPOST_API_MAX_RETRIES)%'
+    # Optional: an empty fallback leaves them null.
+    default_workspace_id: '%env(default::FOPOST_WORKSPACE_ID)%'
+    webhook_secret: '%env(default::FOPOST_WEBHOOK_SECRET)%'
