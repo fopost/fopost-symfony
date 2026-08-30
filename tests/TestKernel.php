@@ -27,7 +27,9 @@ final class TestKernel extends Kernel
     /** @param array<string, mixed> $fopost */
     public function __construct(private readonly array $fopost = ['api_key' => 'fp_test'])
     {
-        $this->fingerprint = substr(md5(serialize($fopost)), 0, 12);
+        // The Symfony version is part of it so a container cached by another
+        // version of the matrix is never reused.
+        $this->fingerprint = substr(md5(Kernel::VERSION . serialize($fopost)), 0, 12);
 
         parent::__construct('test', true);
     }
