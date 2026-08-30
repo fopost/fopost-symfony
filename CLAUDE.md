@@ -138,6 +138,9 @@ the network. Anything new that talks to the API gets covered the same way.
 
 ## Releasing
 
+The first release is `v0.1.0`. There is no `version` field in `composer.json` on purpose — Packagist
+reads git tags, and a hardcoded version drifts.
+
 Tag `v<version>`; `.github/workflows/release.yml` validates the manifest, runs the suite, and creates the
 GitHub Release. **Packagist publishes from the tag through its GitHub webhook, so there is no publish step
 and no repository secret to configure** — someone connects the repository on Packagist once, and every
