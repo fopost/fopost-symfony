@@ -1,0 +1,3 @@
+# POST /fopost/webhook, the endpoint you give FoPost when you create a webhook.
+fopost:
+    resource: '@FopostBundle/config/routes/webhooks.yaml'

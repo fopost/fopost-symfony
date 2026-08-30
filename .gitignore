@@ -5,6 +5,7 @@
 /var/
 /build/
 /coverage/
+/config/reference.php
 .DS_Store
 .idea/
 .vscode/

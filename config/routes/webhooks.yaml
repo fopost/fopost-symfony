@@ -1,0 +1,4 @@
+fopost_webhook:
+    path: /fopost/webhook
+    controller: Fopost\Symfony\Controller\WebhookController
+    methods: [POST]
