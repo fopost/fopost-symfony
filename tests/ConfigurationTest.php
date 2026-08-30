@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Fopost\Symfony\Tests;
 
 use Fopost\Sdk\Client;
+use Fopost\Sdk\Http\HttpClient;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 final class ConfigurationTest extends TestCase
@@ -48,7 +49,7 @@ final class ConfigurationTest extends TestCase
 
         $client = $container->get(Client::class);
         $this->assertInstanceOf(Client::class, $client);
-        $this->assertSame('https://env.example.test/api/v1', $client->baseUrl());
+        $this->assertSame('https://env.example.test' . HttpClient::API_PATH_SUFFIX, $client->baseUrl());
 
         $this->transport()->push(200, ['data' => []]);
         $client->workspaces()->list();

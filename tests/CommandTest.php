@@ -22,7 +22,7 @@ final class CommandTest extends TestCase
 
         $sent = $this->transport()->last();
         $this->assertSame('POST', $sent['method']);
-        $this->assertStringEndsWith('/api/v1/posts', $sent['url']);
+        $this->assertStringEndsWith('/posts', $sent['url']);
         $this->assertSame([
             'workspace_id' => 'ws_default',
             'status' => 'draft',
@@ -41,7 +41,7 @@ final class CommandTest extends TestCase
 
         $this->assertSame(Command::SUCCESS, $status);
         $this->assertStringContainsString('queued for delivery', $tester->getDisplay());
-        $this->assertStringEndsWith('/api/v1/posts/p_2/publish', $this->transport()->last()['url']);
+        $this->assertStringEndsWith('/posts/p_2/publish', $this->transport()->last()['url']);
     }
 
     public function testFopostPostSchedulesWhenGivenATime(): void

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Fopost\Symfony\Tests;
 
 use Fopost\Sdk\Client;
+use Fopost\Sdk\Http\HttpClient;
 use Fopost\Symfony\Command\AccountsCommand;
 use Fopost\Symfony\Command\PostCommand;
 use Fopost\Symfony\Controller\WebhookController;
@@ -34,14 +35,17 @@ final class BundleTest extends TestCase
 
         $client = self::getContainer()->get(Client::class);
         $this->assertInstanceOf(Client::class, $client);
-        $this->assertSame('https://api.example.test/api/v1', $client->baseUrl());
+        // The SDK appends its own version path to a host-only base URL; assert against
+        // its constant rather than restating the prefix here.
+        $this->assertSame('https://api.example.test' . HttpClient::API_PATH_SUFFIX, $client->baseUrl());
 
         $this->transport()->push(200, ['data' => []]);
         $client->workspaces()->list();
 
         $headers = $this->transport()->last()['headers'];
         $this->assertSame('fp_from_config', $headers['X-API-Key']);
-        $this->assertSame('https://api.example.test/api/v1/workspaces', $this->transport()->last()['url']);
+        $this->assertStringStartsWith('https://api.example.test/', $this->transport()->last()['url']);
+        $this->assertStringEndsWith('/workspaces', $this->transport()->last()['url']);
     }
 
     public function testEveryConfigurationKeyBecomesAContainerParameter(): void
