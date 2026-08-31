@@ -5,7 +5,7 @@
 [![CI](https://img.shields.io/github/actions/workflow/status/fopost/fopost-symfony/ci.yml?branch=main&label=ci)](https://github.com/fopost/fopost-symfony/actions)
 [![License](https://img.shields.io/packagist/l/fopost/symfony-bundle.svg)](https://github.com/fopost/fopost-symfony/blob/main/LICENSE)
 
-Official Symfony bundle for the FoPost API. Schedule and publish to +30 social platforms from your code.
+Official Symfony bundle for the [FoPost](https://fopost.com) API. Schedule and publish to +30 social platforms from your code.
 
 This bundle is a thin wrapper around [`fopost/sdk`](https://github.com/fopost/fopost-php). Every request,
 retry, model, and error type lives there; the bundle wires it into Symfony — one configured client for
