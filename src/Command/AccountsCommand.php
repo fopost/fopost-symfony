@@ -52,7 +52,7 @@ final class AccountsCommand extends Command
         }
 
         if ($accounts === []) {
-            $io->warning('No connected accounts. Connect one at https://app.fopost.com.');
+            $io->warning('No connected accounts. Connect one at https://fopost.com/dashboard.');
 
             return Command::SUCCESS;
         }

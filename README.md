@@ -15,7 +15,7 @@ autowiring, two console commands, and a webhook endpoint that turns deliveries i
 
 - PHP 8.1 or newer
 - Symfony 6.4 LTS or 7.x
-- A FoPost API key from [app.fopost.com/api-keys](https://app.fopost.com/api-keys)
+- A FoPost API key from [fopost.com/dashboard/api-keys](https://fopost.com/dashboard/api-keys)
 
 ## Installation
 
@@ -214,7 +214,7 @@ separate on purpose and never depend on each other.
 ## Links
 
 - Documentation: [fopost.com/docs](https://fopost.com/docs)
-- API keys: [app.fopost.com/api-keys](https://app.fopost.com/api-keys)
+- API keys: [fopost.com/dashboard/api-keys](https://fopost.com/dashboard/api-keys)
 - Issues: [github.com/fopost/fopost-symfony/issues](https://github.com/fopost/fopost-symfony/issues)
 - Support: [fopost.com/contact](https://fopost.com/contact)
 

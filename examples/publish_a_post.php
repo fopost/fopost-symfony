@@ -21,12 +21,12 @@ $client = new Client(getenv('FOPOST_API_KEY') ?: null);
 try {
     $workspace = $client->workspaces()->list()[0] ?? null;
     if ($workspace === null) {
-        exit("No workspace on this key. Create one at https://app.fopost.com\n");
+        exit("No workspace on this key. Create one at https://fopost.com/dashboard\n");
     }
 
     $accounts = $client->accounts()->list($workspace->id);
     if ($accounts === []) {
-        exit("No connected accounts. Connect one at https://app.fopost.com\n");
+        exit("No connected accounts. Connect one at https://fopost.com/dashboard\n");
     }
 
     $post = $client->posts()->create(
