@@ -23,8 +23,11 @@ adds a `curl` call, a JSON envelope, or an exception class is in the wrong repos
 
 ## Parent dependency
 
-`fopost/sdk` is on Packagist. `composer.json` declares the normal released coordinate
-(`"fopost/sdk": "^0.3"`) and a clean `composer install` resolves it from there.
+`fopost/sdk` is on Packagist, where the newest release is 0.2.0. `composer.json` declares
+`"fopost/sdk": "^0.2 || ^0.3"`: 0.2 is what installs today, and 0.3 is picked up on its own once
+it is published. Narrowing this to `^0.3` before that release fails `composer update` outright with
+"could not be resolved", which takes CI red in every matrix leg. The Meta ads depth methods (the
+campaign tree, creatives, insights and the leads feed) arrive with the parent's 0.3.
 
 `.github/workflows/ci.yml` still runs the step "Point Composer at the parent SDK repository"
 (`composer config repositories.parent vcs https://github.com/fopost/fopost-php`) before installing. It
