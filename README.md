@@ -99,7 +99,7 @@ final class PublishController extends AbstractController
 }
 ```
 
-`$fopost->posts()`, `accounts()`, `workspaces()`, `labels()`, `ai()`, and the `request()` escape hatch
+`$fopost->posts()`, `accounts()`, `workspaces()`, `labels()`, `ai()`, `media()`, and the `request()` escape hatch
 are all documented in [`fopost/sdk`](https://github.com/fopost/fopost-php) — that is the full API
 surface, and the bundle adds nothing to it.
 
