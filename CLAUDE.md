@@ -24,7 +24,7 @@ adds a `curl` call, a JSON envelope, or an exception class is in the wrong repos
 ## Parent dependency
 
 `fopost/sdk` is **not on Packagist yet**. `composer.json` still declares the normal released coordinate
-(`"fopost/sdk": "^0.1"`) because that is what ships. To make a build resolve today, point Composer at
+(`"fopost/sdk": "^0.2"`) because that is what ships. To make a build resolve today, point Composer at
 the parent's repository first:
 
 ```bash
