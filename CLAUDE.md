@@ -23,17 +23,13 @@ adds a `curl` call, a JSON envelope, or an exception class is in the wrong repos
 
 ## Parent dependency
 
-`fopost/sdk` is **not on Packagist yet**. `composer.json` still declares the normal released coordinate
-(`"fopost/sdk": "^0.1"`) because that is what ships. To make a build resolve today, point Composer at
-the parent's repository first:
+`fopost/sdk` is on Packagist. `composer.json` declares the normal released coordinate
+(`"fopost/sdk": "^0.3"`) and a clean `composer install` resolves it from there.
 
-```bash
-composer config repositories.parent vcs https://github.com/fopost/fopost-php
-composer install
-```
-
-Both workflows in `.github/workflows/` run that step before installing. **Do not commit a `repositories`
-entry into `composer.json`** — the committed manifest stays clean, and the shim lives in CI only.
+`.github/workflows/ci.yml` still runs the step "Point Composer at the parent SDK repository"
+(`composer config repositories.parent vcs https://github.com/fopost/fopost-php`) before installing. It
+is a leftover and no longer needed now that the parent is published. **Do not commit a `repositories`
+entry into `composer.json`** — the committed manifest stays clean.
 
 For local work you may instead point at the sibling checkout, which is faster and picks up unreleased
 parent changes:
@@ -45,8 +41,6 @@ composer config repositories.parent path ../fopost-php
 Either way, revert `composer.json` before committing (`git checkout composer.json`). A tidier option
 that never touches the manifest is a throwaway `COMPOSER_HOME` holding a `config.json` with the same
 `repositories` block — global repositories are merged into every project.
-
-**Delete both CI shim steps once `fopost/sdk` is published to Packagist.**
 
 ## Architecture
 
