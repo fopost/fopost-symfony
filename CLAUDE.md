@@ -24,7 +24,7 @@ adds a `curl` call, a JSON envelope, or an exception class is in the wrong repos
 ## Parent dependency
 
 `fopost/sdk` is on Packagist. `composer.json` declares the normal released coordinate
-(`"fopost/sdk": "^0.2"`) and a clean `composer install` resolves it from there.
+(`"fopost/sdk": "^0.3"`) and a clean `composer install` resolves it from there.
 
 `.github/workflows/ci.yml` still runs the step "Point Composer at the parent SDK repository"
 (`composer config repositories.parent vcs https://github.com/fopost/fopost-php`) before installing. It
