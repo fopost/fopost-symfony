@@ -23,11 +23,11 @@ adds a `curl` call, a JSON envelope, or an exception class is in the wrong repos
 
 ## Parent dependency
 
-`fopost/sdk` is on Packagist, where the newest release is 0.2.0. `composer.json` declares
-`"fopost/sdk": "^0.2 || ^0.3"`: 0.2 is what installs today, and 0.3 is picked up on its own once
-it is published. Narrowing this to `^0.3` before that release fails `composer update` outright with
-"could not be resolved", which takes CI red in every matrix leg. The Meta ads depth methods (the
-campaign tree, creatives, insights and the leads feed) arrive with the parent's 0.3.
+`fopost/sdk` is on Packagist, where the newest release is 0.3.0 (18 Oct 2026). `composer.json`
+declares `"fopost/sdk": "^0.2 || ^0.3"`, so a fresh install resolves 0.3.0, which carries the Meta ads
+depth methods (the campaign tree, creatives, insights and the leads feed). The constraint stays as it
+is: narrowing it to a release that is not yet on Packagist fails `composer update` outright with
+"could not be resolved", which takes CI red in every matrix leg.
 
 `.github/workflows/ci.yml` still runs the step "Point Composer at the parent SDK repository"
 (`composer config repositories.parent vcs https://github.com/fopost/fopost-php`) before installing. It
@@ -135,7 +135,7 @@ the network. Anything new that talks to the API gets covered the same way.
 
 ## Releasing
 
-The first release is `v0.1.0`. There is no `version` field in `composer.json` on purpose — Packagist
+Releases are `v0.1.0` and `v0.2.0` so far. There is no `version` field in `composer.json` on purpose — Packagist
 reads git tags, and a hardcoded version drifts.
 
 Tag `v<version>`; `.github/workflows/release.yml` validates the manifest, runs the suite, and creates the
