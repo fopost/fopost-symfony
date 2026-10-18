@@ -23,11 +23,11 @@ adds a `curl` call, a JSON envelope, or an exception class is in the wrong repos
 
 ## Parent dependency
 
-`fopost/sdk` is on Packagist, where the newest release is 0.3.0 (18 Oct 2026). `composer.json`
-declares `"fopost/sdk": "^0.2 || ^0.3"`, so a fresh install resolves 0.3.0, which carries the Meta ads
-depth methods (the campaign tree, creatives, insights and the leads feed). The constraint stays as it
-is: narrowing it to a release that is not yet on Packagist fails `composer update` outright with
-"could not be resolved", which takes CI red in every matrix leg.
+`fopost/sdk` is on Packagist, where the newest release is 0.3.0 (18 Oct 2026); 0.4.0 is on its way
+with the posting queue, hosted connect links, webhooks, automations and request log resources.
+`composer.json` declares `"fopost/sdk": "^0.4"`, which only resolves once that release is on Packagist:
+narrowing the constraint to an unpublished release fails `composer update` outright with "could not
+be resolved", which takes CI red in every matrix leg, so the bump merges after the parent's release.
 
 `.github/workflows/ci.yml` still runs the step "Point Composer at the parent SDK repository"
 (`composer config repositories.parent vcs https://github.com/fopost/fopost-php`) before installing. It
